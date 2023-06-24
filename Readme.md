@@ -7,12 +7,12 @@ Lista zakupów z Entity Framework Core to prosty program konsolowy napisany w j�
  - Framework Entity Framework Core
 
 ## Instrukcje instalacji
-Sklonuj repozytorium lub pobierz pliki programu jako archiwum ZIP.
-Otwórz projekt w środowisku programistycznym obsługującym język C#, takim jak Visual Studio.
-Zainstaluj framework Entity Framework Core, jeśli jeszcze go nie masz zainstalowanego. Możesz zainstalować go za pomocą menedżera pakietów NuGet lub CLI.
-Skonfiguruj połączenie do swojej bazy danych SQL w pliku konfiguracyjnym programu.
-Skompiluj projekt, aby wygenerować plik wykonywalny.
-Uruchom program konsolowy "ListaZakupow.exe".
+ - Sklonuj repozytorium lub pobierz pliki programu jako archiwum ZIP.
+ - Otwórz projekt w środowisku programistycznym obsługującym język C#, takim jak Visual Studio.
+ - Zainstaluj framework Entity Framework Core, jeśli jeszcze go nie masz zainstalowanego. Możesz zainstalować go za pomocą menedżera pakietów NuGet lub CLI.
+ - Skonfiguruj połączenie do swojej bazy danych SQL w pliku konfiguracyjnym programu.
+ - Skompiluj projekt, aby wygenerować plik wykonywalny.
+ - Uruchom program konsolowy "ListaZakupow.exe".
 
 ## Instrukcje użytkowania
 Po uruchomieniu programu, zostaniesz przywitany i zaproszony do wprowadzania poleceń.

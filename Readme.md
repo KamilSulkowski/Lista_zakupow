@@ -3,8 +3,8 @@
 Lista zakupów z Entity Framework Core to prosty program konsolowy napisany w języku C#, który umożliwia użytkownikowi tworzenie i zarządzanie listą zakupów. Program wykorzystuje framework Entity Framework Core do obsługi bazy danych SQL, umożliwiając automatyczny zapis i odczyt danych z bazy.
 
 ## Wymagania systemowe
-.NET Core 3.1 lub nowszy
-Framework Entity Framework Core (zaproponowany)
+ - .NET Core 3.1 lub nowszy
+ - Framework Entity Framework Core
 
 ## Instrukcje instalacji
 Sklonuj repozytorium lub pobierz pliki programu jako archiwum ZIP.
@@ -36,4 +36,4 @@ Program "Lista zakupów z Entity Framework Core" oferuje wiele możliwości rozb
 Ten program został stworzony przez Kamila Sulkowskiego.
 
 ## Licencja
-Ten program jest udostępniany na licencji MIT. Szczegółowe informacje znajdują się w pliku [LICENSE.md].
+Ten program jest udostępniany na licencji MIT. Szczegółowe informacje znajdują się w pliku [/github/LICENSE][PlGh].

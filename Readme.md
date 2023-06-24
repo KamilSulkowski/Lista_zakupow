@@ -36,4 +36,4 @@ Program "Lista zakupów z Entity Framework Core" oferuje wiele możliwości rozb
 Ten program został stworzony przez Kamila Sulkowskiego.
 
 ## Licencja
-Ten program jest udostępniany na licencji MIT. Szczegółowe informacje znajdują się w pliku [/github/LICENSE][PlGh].
+Ten program jest udostępniany na licencji MIT. Szczegółowe informacje znajdują się w pliku [LICENSE].

@@ -23,8 +23,7 @@ namespace Lista_zakupow
                 Console.WriteLine("2. Zobacz liste");
                 Console.WriteLine("3. Usuń z listy");
                 Console.WriteLine("4. Zamknij");
-                
-
+              
                 try
                     {
                         Console.Write("Wpisz numer: ");
@@ -54,7 +53,7 @@ namespace Lista_zakupow
                             dzialanie = false;
                             break;
                         default:
-                            Console.WriteLine("Wpisz numer 1, 2 lub 3");
+                            Console.WriteLine("Wpisz numer 1, 2");
                             break;
                     }
             }

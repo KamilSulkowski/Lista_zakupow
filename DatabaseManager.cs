@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Data.SQLite;
 
 namespace Lista_zakupow
@@ -15,7 +16,7 @@ namespace Lista_zakupow
 
         public void CreateTableIfNotExists()
         {
-            string createTableQuery = "CREATE TABLE IF NOT EXISTS ListaZakupow (Produkt TEXT)";
+            string createTableQuery = "CREATE TABLE IF NOT EXISTS ListaZakupow (Produkt TEXT, Ilosc DOUBLE DEFAULT 0, Cena DOUBLE DEFAULT 0)";
             using (SQLiteCommand command = new SQLiteCommand(createTableQuery, connection))
             {
                 command.ExecuteNonQuery();
@@ -25,25 +26,30 @@ namespace Lista_zakupow
         public List<string> GetListaZakupow()
         {
             List<string> lista_zakupow = new List<string>();
-            string selectQuery = "SELECT Produkt FROM ListaZakupow";
+            string selectQuery = "SELECT Produkt, Ilosc, Cena FROM ListaZakupow";
             using (SQLiteCommand command = new SQLiteCommand(selectQuery, connection))
             using (SQLiteDataReader reader = command.ExecuteReader())
             {
                 while (reader.Read())
                 {
                     string produkt = reader.GetString(0);
-                    lista_zakupow.Add(produkt);
+                    double ilosc = reader.GetDouble(1);
+                    double cena = reader.GetDouble(2);
+                    string item = $"{produkt} (Ilość: {ilosc}, Cena: {cena})";
+                    lista_zakupow.Add(item);
                 }
             }
             return lista_zakupow;
         }
 
-        public void InsertProductToDatabase(string produkt)
+        public void InsertProductToDatabase(string produkt, double ilosc, double cena)
         {
-            string insertQuery = "INSERT INTO ListaZakupow (Produkt) VALUES (@Produkt)";
+            string insertQuery = "INSERT INTO ListaZakupow (Produkt, Ilosc, Cena) VALUES (@Produkt, @Ilosc, @Cena)";
             using (SQLiteCommand command = new SQLiteCommand(insertQuery, connection))
             {
                 command.Parameters.AddWithValue("@Produkt", produkt);
+                command.Parameters.AddWithValue("@Ilosc", ilosc);
+                command.Parameters.AddWithValue("@Cena", cena);
                 command.ExecuteNonQuery();
             }
         }

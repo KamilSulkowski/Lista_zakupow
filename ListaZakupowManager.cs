@@ -29,13 +29,17 @@ namespace Lista_zakupow
 
         public void DodajDoListy(List<string> lista_zakupow)
         {
-            Console.WriteLine("Co dodać do listy? : ");
+            Console.WriteLine("Jaki produkt dodać do listy? : ");
             string produkt = Console.ReadLine();
+            Console.WriteLine("Jaka jest ilość produktu : (jeśli niewiadomo kliknij enter)");
+            double ilosc = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Jaka jest cena produktu : (jeśli niewiadomo kliknij enter)");
+            double cena = Convert.ToDouble(Console.ReadLine());
 
             if (!string.IsNullOrEmpty(produkt))
             {
                 lista_zakupow.Add(produkt);
-                databaseManager.InsertProductToDatabase(produkt);
+                databaseManager.InsertProductToDatabase(produkt,ilosc,cena);
             }
             else
             {

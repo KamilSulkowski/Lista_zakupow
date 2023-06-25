@@ -60,7 +60,14 @@ namespace Lista_zakupow
         {
             Console.Write("Jaki produkt chcesz usunąć z listy? : ");
             string produkt = Console.ReadLine();
-            databaseManager.DeleteProductFromDatabase(produkt);
+            if (!string.IsNullOrEmpty(produkt))
+            {
+                databaseManager.DeleteProductFromDatabase(produkt);
+            }
+            else
+            {
+                Console.WriteLine("Pole nie może być puste");
+            }
             Console.WriteLine("Produkt usunięty!");
             WypiszListe(lista_zakupow);
         }

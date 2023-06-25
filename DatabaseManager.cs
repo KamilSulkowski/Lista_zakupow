@@ -24,7 +24,7 @@ namespace Lista_zakupow
 
         public List<string> GetListaZakupow()
         {
-            List<string> listaZakupow = new List<string>();
+            List<string> lista_zakupow = new List<string>();
             string selectQuery = "SELECT Produkt FROM ListaZakupow";
             using (SQLiteCommand command = new SQLiteCommand(selectQuery, connection))
             using (SQLiteDataReader reader = command.ExecuteReader())
@@ -32,10 +32,10 @@ namespace Lista_zakupow
                 while (reader.Read())
                 {
                     string produkt = reader.GetString(0);
-                    listaZakupow.Add(produkt);
+                    lista_zakupow.Add(produkt);
                 }
             }
-            return listaZakupow;
+            return lista_zakupow;
         }
 
         public void InsertProductToDatabase(string produkt)

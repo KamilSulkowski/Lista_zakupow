@@ -23,6 +23,16 @@ namespace Lista_zakupow
             }
         }
 
+        static void DeleteProductFromDatabase(string produkt)
+        {
+            string deleteQuery = "DELETE FROM ListaZakupow WHERE Produkt = @Produkt";
+            using (SQLiteCommand command = new SQLiteCommand(deleteQuery, connection))
+            {
+                command.Parameters.AddWithValue("@Produkt", produkt);
+                command.ExecuteNonQuery();
+            }
+        }
+
         static void InsertProductToDatabase(string produkt)
         {
             string insertQuery = "INSERT INTO ListaZakupow (Produkt) VALUES (@Produkt)";
@@ -92,7 +102,15 @@ namespace Lista_zakupow
             Console.WriteLine("");
             Console.WriteLine("");
 
+        }
 
+        static void usun_z_listy(List<String> lista_zakupow)
+        {
+            Console.Write("jaki produkt chcesz usunąć z list ? : ");
+            string produkt = Console.ReadLine();
+            DeleteProductFromDatabase(produkt);
+            Console.WriteLine("Produkt usunięty!");
+            wypisz_liste();
         }
 
         static void menu(List<String> lista_zakupow)
@@ -102,7 +120,7 @@ namespace Lista_zakupow
             Console.WriteLine("----LISTA ZAKUPOW----");
             Console.WriteLine("1. Dodaj do Listy");
             Console.WriteLine("2. Zobacz liste");
-            Console.WriteLine("3. Zobacz liste");
+            Console.WriteLine("3. usun produkt z listy");
             Console.WriteLine("4. Zamknij");
             while (dzialanie)
             {
@@ -130,6 +148,7 @@ namespace Lista_zakupow
                         wypisz_liste();
                         break;
                     case 3:
+                        usun_z_listy(lista_zakupow);
                         break;
                     case 4:
                         dzialanie = false;

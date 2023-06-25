@@ -1,15 +1,15 @@
 # Lista zakupów
 ## Opis
-Lista zakupów to prosty program konsolowy napisany w języku C#, który umożliwia użytkownikowi tworzenie i zarządzanie listą zakupów. Program wykorzystuje framework SQLlite do obsługi bazy danych SQL, umożliwiając automatyczny zapis i odczyt danych z bazy.
+Lista zakupów to prosty program konsolowy napisany w języku C#, który umożliwia użytkownikowi tworzenie i zarządzanie listą zakupów. Program wykorzystuje framework SQLite do obsługi bazy danych SQL, umożliwiając automatyczny zapis i odczyt danych z bazy.
 
 ## Wymagania systemowe
- - .NET Core 3.1 lub nowszy
- - SQLlite
+ - .NET Core 6.0 lub nowszy
+ - SQLite
 
 ## Instrukcje instalacji
  - Sklonuj repozytorium lub pobierz pliki programu jako archiwum ZIP.
  - Otwórz projekt w środowisku programistycznym obsługującym język C#, takim jak Visual Studio.
- - Zainstaluj framework Entity Framework Core, jeśli jeszcze go nie masz zainstalowanego. Możesz zainstalować go za pomocą menedżera pakietów NuGet lub CLI.
+ - Zainstaluj System Data SQLite, jeśli jeszcze go nie masz zainstalowanego. Możesz zainstalować go za pomocą menedżera pakietów NuGet lub CLI.
  - Skonfiguruj połączenie do swojej bazy danych SQL w pliku konfiguracyjnym programu.
  - Skompiluj projekt, aby wygenerować plik wykonywalny.
  - Uruchom program konsolowy "ListaZakupow.exe".

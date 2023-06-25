@@ -37,11 +37,12 @@ namespace Lista_zakupow
             Console.WriteLine("Jaka jest cena produktu(cena za jedno) : (jeśli niewiadomo kliknij enter)");
             double cena;
             double.TryParse(Console.ReadLine(), out cena);
+            double suma = ilosc * cena;
 
             if (!string.IsNullOrEmpty(produkt))
             {
                 lista_zakupow.Add(produkt);
-                databaseManager.InsertProductToDatabase(produkt,ilosc,cena);
+                databaseManager.InsertProductToDatabase(produkt, ilosc, cena, suma);
             }
             else
             {
@@ -75,7 +76,6 @@ namespace Lista_zakupow
                 Console.WriteLine("Pole nie może być puste");
             }
             Console.WriteLine("Produkt usunięty!");
-            WypiszListe(lista_zakupow);
         }
     }
 }

@@ -30,7 +30,10 @@ Program "Lista zakupów" oferuje wiele możliwości rozbudowy, takich jak:
  - Obsługa wielu list zakupów: Program może umożliwić użytkownikowi tworzenie i zarządzanie wieloma listami zakupów, przechowując je w osobnych tabelach bazy danych.
  - Rozbudowane filtrowanie i sortowanie: Program może obsługiwać bardziej zaawansowane filtrowanie i sortowanie przedmiotów na liście, umożliwiając użytkownikowi szybkie wyszukiwanie i sortowanie według różnych kryteriów.
  - Ulepszone zarządzanie użytkownikami: Program może wprowadzić system rejestracji i logowania użytkowników, umożliwiając przechowywanie list zakupów dla różnych użytkowników.
+
+## Dodane funkcjonalości
  - Dodawanie informacji o ilości i cenie: Program może rozszerzyć strukturę danych przedmiotu na liście zakupów, aby przechowywać informacje o ilości i cenie, co umożliwi obliczanie sumy zakupów.
+
 
 ## Autor
 Ten program został stworzony przez Kamila Sulkowskiego.

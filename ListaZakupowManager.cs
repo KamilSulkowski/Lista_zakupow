@@ -32,9 +32,11 @@ namespace Lista_zakupow
             Console.WriteLine("Jaki produkt dodać do listy? : ");
             string produkt = Console.ReadLine();
             Console.WriteLine("Jaka jest ilość produktu : (jeśli niewiadomo kliknij enter)");
-            double ilosc = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Jaka jest cena produktu : (jeśli niewiadomo kliknij enter)");
-            double cena = Convert.ToDouble(Console.ReadLine());
+            double ilosc;
+            double.TryParse(Console.ReadLine(), out ilosc);
+            Console.WriteLine("Jaka jest cena produktu(cena za jedno) : (jeśli niewiadomo kliknij enter)");
+            double cena;
+            double.TryParse(Console.ReadLine(), out cena);
 
             if (!string.IsNullOrEmpty(produkt))
             {
@@ -54,7 +56,7 @@ namespace Lista_zakupow
             Console.WriteLine("----LISTA ZAKUPOW----");
             foreach (string produkt in lista_zakupow)
             {
-                Console.WriteLine(produkt);
+                Console.WriteLine($" - {produkt}");
             }
             Console.WriteLine("----KONIEC----");
 

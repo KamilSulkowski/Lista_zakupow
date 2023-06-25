@@ -1,22 +1,67 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Data.SQLite;
 
 namespace Lista_zakupow
 {
     internal class Program
     {
+        private static SQLiteConnection connection;
+
+        static void InitializeDatabase()
+        {
+            connection = new SQLiteConnection("Data Source=lista_zakupow.db");
+            connection.Open();
+        }
+
+        static void CreateTableIfNotExists()
+        {
+            string createTableQuery = "CREATE TABLE IF NOT EXISTS ListaZakupow (Produkt TEXT)";
+            using (SQLiteCommand command = new SQLiteCommand(createTableQuery, connection))
+            {
+                command.ExecuteNonQuery();
+            }
+        }
+
+        static void InsertProductToDatabase(string produkt)
+        {
+            string insertQuery = "INSERT INTO ListaZakupow (Produkt) VALUES (@Produkt)";
+            using (SQLiteCommand command = new SQLiteCommand(insertQuery, connection))
+            {
+                command.Parameters.AddWithValue("@Produkt", produkt);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        static List<string> GetListaZakupowFromDatabase()
+        {
+            List<string> listaZakupow = new List<string>();
+            string selectQuery = "SELECT Produkt FROM ListaZakupow";
+            using (SQLiteCommand command = new SQLiteCommand(selectQuery, connection))
+            using (SQLiteDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    string produkt = reader.GetString(0);
+                    listaZakupow.Add(produkt);
+                }
+            }
+            return listaZakupow;
+        }
+
         static void Main(string[] args)
         {
-            
+            InitializeDatabase();
+            CreateTableIfNotExists();
             List<String> lista_zakupow = new List<String>();
+            wypisz_liste();
             menu(lista_zakupow);
-
             Console.ReadKey();
         }
 
-        static void wypisz_liste(List<string> lista_zakupow)
+        static void wypisz_liste()
         {
+            List<string> lista_zakupow = GetListaZakupowFromDatabase();
             Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("----LISTA ZAKUPOW----");
@@ -37,6 +82,7 @@ namespace Lista_zakupow
             if (!string.IsNullOrEmpty(produkt))
             {
                 lista_zakupow.Add(produkt);
+                InsertProductToDatabase(produkt);
                 menu(lista_zakupow);
             }
             else
@@ -56,7 +102,8 @@ namespace Lista_zakupow
             Console.WriteLine("----LISTA ZAKUPOW----");
             Console.WriteLine("1. Dodaj do Listy");
             Console.WriteLine("2. Zobacz liste");
-            Console.WriteLine("3. Zamknij");
+            Console.WriteLine("3. Zobacz liste");
+            Console.WriteLine("4. Zamknij");
             while (dzialanie)
             {
                 try
@@ -80,9 +127,11 @@ namespace Lista_zakupow
                         dodaj_do_listy(lista_zakupow);
                         break;
                     case 2:
-                        wypisz_liste(lista_zakupow);
+                        wypisz_liste();
                         break;
                     case 3:
+                        break;
+                    case 4:
                         dzialanie = false;
                         break;
                 }
